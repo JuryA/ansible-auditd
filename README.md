@@ -1,5 +1,3 @@
-[![Build Status - Master](https://travis-ci.org/juju4/ansible-auditd.svg?branch=master)](https://travis-ci.org/juju4/ansible-auditd)
-[![Build Status - Devel](https://travis-ci.org/juju4/ansible-auditd.svg?branch=devel)](https://travis-ci.org/juju4/ansible-auditd/branches)
 # Linux auditd ansible role
 
 Ansible role to setup and configure linux auditd
@@ -24,7 +22,7 @@ For example
 ```
 - hosts: all
   roles:
-    - juju4.auditd
+    - dcc.auditd
 ```
 
 ## Variables
@@ -39,14 +37,14 @@ Default kitchen config (.kitchen.yml) is lxd-based, while (.kitchen.vagrant.yml)
 Once you ensured all necessary roles are present, You can test with:
 ```
 $ gem install kitchen-ansible kitchen-lxd_cli kitchen-sync kitchen-vagrant
-$ cd /path/to/roles/juju4.auditd
+$ cd /path/to/roles/dcc.auditd
 $ kitchen verify
 $ kitchen login
 $ KITCHEN_YAML=".kitchen.vagrant.yml" kitchen verify
 ```
 or
 ```
-$ cd /path/to/roles/juju4.auditd/test/vagrant
+$ cd /path/to/roles/dcc.auditd/test/vagrant
 $ vagrant up
 $ vagrant ssh
 ```

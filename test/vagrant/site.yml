@@ -2,4 +2,4 @@
 
 - hosts: vagrantselect
   roles:
-    - juju4.auditd
+    - dcc.auditd

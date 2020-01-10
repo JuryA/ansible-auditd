@@ -5,4 +5,4 @@
     - auditd_exclusion_rules2: []
     - audisp_syslog_enable: false
   roles:
-    - juju4.auditd
+    - dcc.auditd
