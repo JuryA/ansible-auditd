@@ -16,6 +16,7 @@ molecule:
   stage: tests
   tags:
     - docker
+    - common-runner
   variables:
     DOCKER_HOST: "tcp://docker:2375"
     PY_COLORS: 1
