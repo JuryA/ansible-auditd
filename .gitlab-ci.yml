@@ -1,0 +1,152 @@
+---
+image: quay.io/ansible/molecule:latest
+services:
+  - docker:dind
+
+stages:
+  - tests
+
+before_script:
+  - docker -v
+  - python -V
+  - ansible --version
+  - molecule --version
+
+molecule:
+  stage: tests
+  tags:
+    - docker
+  variables:
+    DOCKER_HOST: "tcp://docker:2375"
+    PY_COLORS: 1
+  script:
+    - molecule test
+  only:
+    changes:
+      - ./**/*
+
+# molecule-role-monitoring-tools:
+#   stage: tests
+#   tags:
+#     - docker
+#   variables:
+#     DOCKER_HOST: "tcp://docker:2375"
+#     PY_COLORS: 1
+#   script:
+#     - cd roles/monitoring-tools/
+#     - molecule test
+#   only:
+#     changes:
+#       - roles/monitoring-tools/**/*
+
+# molecule-role-redis:
+#   stage: tests
+#   tags:
+#     - docker
+#   variables:
+#     DOCKER_HOST: "tcp://docker:2375"
+#     PY_COLORS: 1
+#   script:
+#     - cd roles/redis/
+#     - molecule test
+#   only:
+#     changes:
+#       - roles/redis/**/*
+
+# molecule-role-firewall:
+#   stage: tests
+#   tags:
+#     - docker
+#   variables:
+#     DOCKER_HOST: "tcp://docker:2375"
+#     PY_COLORS: 1
+#   script:
+#     - cd roles/firewall/
+#     - molecule test
+#   only:
+#     changes:
+#       - roles/firewall/**/*
+
+# molecule-role-nginx:
+#   stage: tests
+#   tags:
+#     - docker
+#   variables:
+#     DOCKER_HOST: "tcp://docker:2375"
+#     PY_COLORS: 1
+#   script:
+#     - cd roles/nginx/
+#     - molecule test
+#   only:
+#     changes:
+#       - roles/nginx/**/*
+
+# molecule-role-syslog:
+#   stage: tests
+#   tags:
+#     - docker
+#   variables:
+#     DOCKER_HOST: "tcp://docker:2375"
+#     PY_COLORS: 1
+#   script:
+#     - cd roles/syslog/
+#     - molecule test
+#   only:
+#     changes:
+#       - roles/syslog/**/*
+
+# molecule-role-postgresql:
+#   stage: tests
+#   tags:
+#     - docker
+#   variables:
+#     DOCKER_HOST: "tcp://docker:2375"
+#     PY_COLORS: 1
+#   script:
+#     - cd roles/postgresql/
+#     - molecule test
+#   only:
+#     changes:
+#       - roles/postgresql/**/*
+
+# molecule-role-postfix:
+#   stage: tests
+#   tags:
+#     - docker
+#   variables:
+#     DOCKER_HOST: "tcp://docker:2375"
+#     PY_COLORS: 1
+#   script:
+#     - cd roles/postfix/
+#     - molecule test
+#   only:
+#     changes:
+#       - roles/postfix/**/*
+
+# molecule-role-php-fpm:
+#   stage: tests
+#   tags:
+#     - docker
+#   variables:
+#     DOCKER_HOST: "tcp://docker:2375"
+#     PY_COLORS: 1
+#   script:
+#     - cd roles/php-fpm/
+#     - molecule test
+#   only:
+#     changes:
+#       - roles/php-fpm/**/*
+
+# molecule-role-elasticsearch:
+#   stage: tests
+#   tags:
+#     - docker
+#   variables:
+#     DOCKER_HOST: "tcp://docker:2375"
+#     PY_COLORS: 1
+#   script:
+#     - cd roles/elasticsearch/
+#     - molecule test
+#   only:
+#     changes:
+#       - roles/elasticsearch/**/*
