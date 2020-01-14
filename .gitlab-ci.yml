@@ -10,6 +10,7 @@ before_script:
   - docker -v
   - python -V
   - ansible --version
+  - pip install 'molecule[docker]'
   - molecule --version
 
 molecule:
